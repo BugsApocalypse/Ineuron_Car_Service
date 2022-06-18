@@ -16,7 +16,4 @@
     <string name="latitude">Enter Latitude</string>
     <string name="longitude">Enter Longitude</string>
 
-=======
-    <string name="title_activity_nearby_service_center_geo">NearbyServiceCenterGeoActivity</string>
->>>>>>> 37d5f462c40343f906350079c46a070588b089b7
 </resources>
