@@ -11,13 +11,15 @@
         android:id="@+id/tv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:textAlignment="center"
-        android:textSize="50sp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/roboto_medium"
-        android:layout_marginTop="60dp"/>
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#4154F1"
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/tv_subtitle"
@@ -75,12 +77,54 @@
         android:id="@+id/et_repassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_custom"
+        android:fontFamily="rob"
         android:hint="@string/re_type_password"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_custom"
+        android:fontFamily="rob"
+        android:hint="@string/phone_no"
+        android:inputType="number"
+        android:padding="15dp"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/loc_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_custom"
+        android:fontFamily="rob"
+        android:hint="@string/latitude"
+        android:inputType="numberDecimal"
+        android:padding="15dp"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/loc_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/longitude"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="15dp"
         android:fontFamily="rob"
-        android:inputType="textPassword"
+        android:inputType="numberDecimal"
         android:background="@drawable/et_custom"
         android:textSize="15sp" />
 
@@ -90,35 +134,29 @@
         android:layout_weight="1">
 
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_custom"
-            android:fontFamily="@font/roboto"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:text="@string/register"/>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_arrow_left"
-            android:layout_above="@id/swipeLeft"
-            android:layout_centerHorizontal="true"/>
+            android:background="@drawable/btn_custom"
+            android:fontFamily="@font/roboto"
+            android:text="@string/register"
+            android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/swipeLeft"
+            android:id="@+id/switchLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/swipe_right_for_login"
-            android:textSize="15sp"
-            android:fontFamily="@font/roboto"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/login_account"
+            android:textSize="15sp" />
+
 
     </RelativeLayout>
 

@@ -7,9 +7,9 @@
         <entry key="app/src/main/res/drawable/et_custom.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrow_right.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.2586050724637681" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.165" />
       </map>
     </option>
   </component>
