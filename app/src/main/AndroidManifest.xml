@@ -17,8 +17,13 @@
         android:theme="@style/Theme.Ineuron"
         tools:targetApi="31">
         <activity
-
-
+            android:name=".SignupActivityAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
             android:name=".Payment"
             android:exported="false" />
         <!--
@@ -39,26 +44,29 @@
         <activity
             android:name=".NearbyServiceCenterGeoActivity"
             android:exported="false"
-            android:label="@string/title_activity_nearby_service_center_geo" />
+            android:label="@string/title_activity_nearby_service_center_geo"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
-            android:name=".SignupActivity"
-            android:exported="false" />
+            android:name=".SignupActivityUser"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".BookASlotActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".ServiceCentreInfoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-
             android:exported="true"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
+            android:theme="@style/Theme.Design.Light.NoActionBar"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

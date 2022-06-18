@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    tools:context=".SignupActivityAdmin"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/img_logo"
@@ -17,10 +18,10 @@
         android:src="@drawable/logo" />
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_name_admin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="@string/your_name"
+        android:hint="@string/service_centre"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
@@ -31,7 +32,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_email_admin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/e_mail"
@@ -45,7 +46,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/et_password_admin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/password"
@@ -59,7 +60,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_repassword"
+        android:id="@+id/et_repassword_Admin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
@@ -95,7 +96,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/et_custom"
         android:fontFamily="rob"
-        android:hint="@string/latitude"
+        android:hint="Enter the Address"
         android:inputType="numberDecimal"
         android:padding="15dp"
         android:textSize="15sp" />
@@ -119,7 +120,7 @@
         android:layout_weight="1">
 
         <Button
-            android:id="@+id/btn_signup"
+            android:id="@+id/btn_signup_admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -135,7 +136,7 @@
             android:id="@+id/switchLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btn_signup"
+            android:layout_alignTop="@+id/btn_signup_admin"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"

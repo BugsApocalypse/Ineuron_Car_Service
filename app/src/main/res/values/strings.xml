@@ -7,13 +7,15 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="e_mail">Email</string>
-    <string name="tag">Let\'s join us and \nBuild your relationship with others</string>
+    <string name="tag">Come join us!\nStart your coding journey with the experts.</string>
     <string name="swipe_right_for_login">Swipe Right for Login</string>
     <string name="register">Register</string>
-    <string name="re_type_password">Re-type Password</string>
+    <string name="re_type_password">Re-type the Password</string>
     <string name="your_name">Full Name</string>
     <string name="phone_no">Phone Number</string>
     <string name="latitude">Enter Latitude</string>
     <string name="longitude">Enter Longitude</string>
+    <string name="service_centre">Service Centre Admin</string>
+
 
 </resources>

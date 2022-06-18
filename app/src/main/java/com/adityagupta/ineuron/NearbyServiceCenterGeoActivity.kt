@@ -56,13 +56,25 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
         for(i in userList.indices){
             Log.i("result",userList[i].admin_id.toString() )
             if(userList[i].admin_id.toString() == id){
+                titleTextView.text = userList[i].title
                 titleTextView.text = userList[i].name
                 Log.i("resulttt", userList[i].admin_id.toString())
                 break
             }
         }
         button.setOnClickListener {
-            startActivity(Intent(context, ServiceCentreInfoActivity::class.java))
+            val intent = Intent(context, ServiceCentreInfoActivity::class.java)
+            for(i in userList.indices){
+                if(userList[i].admin_id.toString() == id){
+                    intent.putExtra("title", userList[i].title )
+                    intent.putExtra("number", userList[i].phone_number)
+                    intent.putExtra("email", userList[i].email)
+                    intent.putExtra("lat", userList[i].latitude)
+                    intent.putExtra("lon", userList[i].longitude)
+                    break
+                }
+            }
+            startActivity(intent)
 
         }
 
@@ -254,8 +266,9 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
 
     override fun onMarkerClick(p0: Marker): Boolean {
         modalBottomSheet.userList = usersList
-        modalBottomSheet.id = p0.id.toString()
-        Log.i("resulttt", p0.id.toString())
+        modalBottomSheet.id = p0.title.toString()
+        Log.i("resulttt", p0.title.toString())
+
         modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
 
         return false
