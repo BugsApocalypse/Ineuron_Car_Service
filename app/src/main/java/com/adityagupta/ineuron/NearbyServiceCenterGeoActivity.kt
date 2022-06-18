@@ -57,6 +57,7 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
             Log.i("result",userList[i].admin_id.toString() )
             if(userList[i].admin_id.toString() == id){
                 titleTextView.text = userList[i].title
+                titleTextView.text = userList[i].name
                 Log.i("resulttt", userList[i].admin_id.toString())
                 break
             }
@@ -267,6 +268,7 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
         modalBottomSheet.userList = usersList
         modalBottomSheet.id = p0.title.toString()
         Log.i("resulttt", p0.title.toString())
+
         modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
 
         return false
