@@ -16,7 +16,7 @@ android:layout_height="match_parent"
     android:layout_width="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/wdTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -26,13 +26,13 @@ android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/wdImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/wdTitleText"
                 app:srcCompat="@drawable/honda" />
 
             <LinearLayout
@@ -48,7 +48,7 @@ android:layout_height="match_parent"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/wdImage"
                 app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
@@ -99,7 +99,7 @@ android:layout_height="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/wdAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -109,7 +109,7 @@ android:layout_height="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/wdNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -117,7 +117,7 @@ android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/wdAddress" />
 
             <Button
                 android:id="@+id/bsBookServiceButton"
@@ -125,9 +125,9 @@ android:layout_height="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CALL"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintEnd_toEndOf="@+id/wdNumber"
+                app:layout_constraintStart_toStartOf="@+id/wdNumber"
+                app:layout_constraintTop_toBottomOf="@+id/wdNumber" />
 
             <Button
                 android:id="@+id/bookASlotButton"

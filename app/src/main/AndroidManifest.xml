@@ -56,8 +56,7 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".BookASlotActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
+            android:exported="false"/>
         <activity
             android:name=".ServiceCentreInfoActivity"
             android:exported="false"

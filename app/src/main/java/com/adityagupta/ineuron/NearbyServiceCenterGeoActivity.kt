@@ -38,9 +38,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import org.json.JSONObject
-
 
 class ModalBottomSheet() : BottomSheetDialogFragment() {
     var userList = mutableListOf<userItem>()
@@ -122,9 +122,11 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
             jsonObject.put("age", "23")
 
             val jsonObjectString = jsonObject.toString()
+
+            //Log.i("something")
             val mediaType = "application/json; charset=utf-8".toMediaType()
 
-            val requestBody = RequestBody.create(mediaType, jsonObjectString)
+            val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
             val response = oxfordApi.createEmployee(requestBody)
 
             runOnUiThread(Runnable {
