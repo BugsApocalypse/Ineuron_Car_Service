@@ -48,11 +48,12 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".SignupActivityUser"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
+
         <activity
             android:name=".LoginActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".BookASlotActivity"
