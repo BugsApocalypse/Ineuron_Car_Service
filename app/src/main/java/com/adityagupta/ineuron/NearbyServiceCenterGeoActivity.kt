@@ -2,6 +2,7 @@ package com.adityagupta.ineuron
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
@@ -35,7 +37,16 @@ class ModalBottomSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.workshop_mini_details_bottom_sheet, container, false)
+    ): View? {
+        var something = inflater.inflate(R.layout.workshop_mini_details_bottom_sheet, container, false)
+        var button = something.findViewById<Button>(R.id.bsBookServiceButton)
+        button.setOnClickListener {
+            startActivity(Intent(context, ServiceCentreInfoActivity::class.java))
+
+        }
+
+        return something
+    }
 
     companion object {
         const val TAG = "ModalBottomSheet"
@@ -44,13 +55,12 @@ class ModalBottomSheet : BottomSheetDialogFragment() {
 
 class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
-
-
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityNearbyServiceCenterGeoBinding
     private var cameraPosition: CameraPosition? = null
     private lateinit var placesClient: PlacesClient
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    val modalBottomSheet = ModalBottomSheet()
 
     private val defaultLocation = LatLng(-33.8523341, 151.2106085)
     private var locationPermissionGranted = false
@@ -67,11 +77,11 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
         binding = ActivityNearbyServiceCenterGeoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         Places.initialize(applicationContext, "AIzaSyAY0O8EOmuGiO6SmQAm7s8UfTzaTI77sUk")
         placesClient = Places.createClient(this)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -184,7 +194,6 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
     }
 
     override fun onMarkerClick(p0: Marker): Boolean {
-        val modalBottomSheet = ModalBottomSheet()
         modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
 
         return false
