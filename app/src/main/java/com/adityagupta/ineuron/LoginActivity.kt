@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
 
         if(firebaseAuth.currentUser != null){
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NearbyServiceCenterGeoActivity::class.java)
             startActivity(intent)
         }
     }
