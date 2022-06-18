@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "401301187021",
+    "project_id": "car-service-2c4fd",
+    "storage_bucket": "car-service-2c4fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401301187021:android:61d97da3bce14db2c67c84",
+        "android_client_info": {
+          "package_name": "com.adityagupta.ineuron"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401301187021-82caf05un7hihn7uhtjdu49dd3f6pk59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm98_W66ysZ1Bqbq-KbVyjjXa2oUwdfPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401301187021-82caf05un7hihn7uhtjdu49dd3f6pk59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
