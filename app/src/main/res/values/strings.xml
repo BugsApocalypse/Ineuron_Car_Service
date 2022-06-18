@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ineuron</string>
+    <string name="title_activity_nearby_service_center_geo">NearbyServiceCenterGeoActivity</string>
 </resources>
