@@ -66,6 +66,7 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
             val intent = Intent(context, ServiceCentreInfoActivity::class.java)
             for(i in userList.indices){
                 if(userList[i].admin_id.toString() == id){
+                    intent.putExtra("admin_id", userList[i].admin_id.toString())
                     intent.putExtra("title", userList[i].title )
                     intent.putExtra("number", userList[i].phone_number)
                     intent.putExtra("email", userList[i].email)
@@ -115,6 +116,7 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
         GlobalScope.launch {
             val oxfordApi = RetrofitHelper.getInstance().create(DBApi::class.java)
             val users = oxfordApi.getUsers().body()
+
 
             val jsonObject = JSONObject()
             jsonObject.put("name", "Jack")
