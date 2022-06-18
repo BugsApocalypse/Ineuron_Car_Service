@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Payment">
+    tools:context=".PaymentActivity">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
@@ -159,11 +159,11 @@
     </com.google.android.material.card.MaterialCardView>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Checkout"
+        android:text="Confirm Payment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
