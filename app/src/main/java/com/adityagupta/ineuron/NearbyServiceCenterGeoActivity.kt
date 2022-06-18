@@ -36,10 +36,6 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
     private val defaultLocation = LatLng(-33.8523341, 151.2106085)
     private var locationPermissionGranted = false
     private var lastKnownLocation: Location? = null
-    private var likelyPlaceNames: Array<String?> = arrayOfNulls(0)
-    private var likelyPlaceAddresses: Array<String?> = arrayOfNulls(0)
-    private var likelyPlaceAttributions: Array<List<*>?> = arrayOfNulls(0)
-    private var likelyPlaceLatLngs: Array<LatLng?> = arrayOfNulls(0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +79,7 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         })
-        
+
         getLocationPermission()
         updateLocationUI()
         getDeviceLocation()
