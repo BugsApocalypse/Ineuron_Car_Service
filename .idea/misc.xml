@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rocko/AndroidStudioProjects/Ineuron/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/rocko/AndroidStudioProjects/Ineuron/app/src/main/res/layout/activity_nearby_service_center_geo.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/rocko/AndroidStudioProjects/Ineuron/app/src/main/res/layout/activity_service_center_gei.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/rocko/AndroidStudioProjects/Ineuron/app/src/main/res/layout/workshop_mini_details_bottom_sheet.xml" value="0.23125" />
       </map>
     </option>
   </component>

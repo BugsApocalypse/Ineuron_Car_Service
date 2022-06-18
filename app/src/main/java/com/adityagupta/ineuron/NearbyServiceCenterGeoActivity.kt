@@ -7,7 +7,9 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
@@ -24,8 +26,25 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.Marker
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.net.PlacesClient
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
+class ModalBottomSheet : BottomSheetDialogFragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.workshop_mini_details_bottom_sheet, container, false)
+
+    companion object {
+        const val TAG = "ModalBottomSheet"
+    }
+}
+
+class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+
+
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityNearbyServiceCenterGeoBinding
@@ -47,6 +66,8 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding = ActivityNearbyServiceCenterGeoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         Places.initialize(applicationContext, "AIzaSyAY0O8EOmuGiO6SmQAm7s8UfTzaTI77sUk")
         placesClient = Places.createClient(this)
@@ -74,15 +95,25 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
             }
 
             override fun getInfoContents(p0: Marker): View? {
-                TODO("Not yet implemented")
+                return null
             }
 
 
         })
 
+        val sydney = LatLng(-33.852, 151.211)
+        mMap.addMarker(
+            MarkerOptions()
+                .position(sydney)
+                .title("Marker in Sydney")
+        )
+
         getLocationPermission()
         updateLocationUI()
         getDeviceLocation()
+
+        mMap.setOnMarkerClickListener (this)
+
     }
 
 
@@ -127,6 +158,7 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                 LatLng(lastKnownLocation!!.latitude,
                                     lastKnownLocation!!.longitude), DEFAULT_ZOOM.toFloat()))
+                            mMap.addMarker(MarkerOptions().position(LatLng(lastKnownLocation!!.latitude, lastKnownLocation!!.longitude)))
                         }
                     } else {
                         Log.d(TAG, "Current location is null. Using defaults.")
@@ -149,6 +181,13 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val KEY_CAMERA_POSITION = "camera_position"
         private const val KEY_LOCATION = "location"
         private const val M_MAX_ENTRIES = 5
+    }
+
+    override fun onMarkerClick(p0: Marker): Boolean {
+        val modalBottomSheet = ModalBottomSheet()
+        modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
+
+        return false
     }
 
 
