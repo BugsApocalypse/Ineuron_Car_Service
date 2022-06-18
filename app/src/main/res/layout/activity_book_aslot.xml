@@ -77,11 +77,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/confirmBooking"
+        android:id="@+id/confirm_booking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="confirm booking"
+        android:text="Confirm Booking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
