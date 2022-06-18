@@ -17,9 +17,6 @@
         android:theme="@style/Theme.Ineuron"
         tools:targetApi="31">
         <activity
-            android:name=".SignupActivityAdmin"
-            android:exported="false" />
-        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
@@ -50,7 +47,10 @@
             android:name=".SignupActivityUser"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
-
+        <activity
+            android:name=".SignupActivityAdmin"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
