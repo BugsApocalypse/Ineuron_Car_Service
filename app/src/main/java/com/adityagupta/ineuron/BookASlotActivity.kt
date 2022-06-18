@@ -1,5 +1,6 @@
 package com.adityagupta.ineuron
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -45,6 +46,10 @@ class BookASlotActivity : AppCompatActivity() {
                     .build()
 
             picker.show(supportFragmentManager, "tag");
+        }
+
+        binding.confirmBooking.setOnClickListener {
+            startActivity(Intent(this, Payment::class.java))
         }
     }
 }
