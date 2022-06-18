@@ -12,8 +12,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.adityagupta.ineuron.data.users.user
+import com.adityagupta.ineuron.data.users.userItem
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -22,6 +25,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.adityagupta.ineuron.databinding.ActivityNearbyServiceCenterGeoBinding
+import com.adityagupta.ineuron.helpers.RetrofitHelper
+import com.adityagupta.ineuron.interfaces.DBApi
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.CameraPosition
@@ -30,9 +35,16 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody
+import org.json.JSONObject
 
-class ModalBottomSheet : BottomSheetDialogFragment() {
 
+class ModalBottomSheet() : BottomSheetDialogFragment() {
+    var userList = mutableListOf<userItem>()
+    var id = ""
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,6 +52,15 @@ class ModalBottomSheet : BottomSheetDialogFragment() {
     ): View? {
         val something = inflater.inflate(R.layout.workshop_mini_details_bottom_sheet, container, false)
         val button = something.findViewById<Button>(R.id.bsBookServiceButton)
+        val titleTextView = something.findViewById<TextView>(R.id.bsServiceCenterTitle)
+        for(i in userList.indices){
+            Log.i("result",userList[i].admin_id.toString() )
+            if(userList[i].admin_id.toString() == id){
+                titleTextView.text = userList[i].name
+                Log.i("resulttt", userList[i].admin_id.toString())
+                break
+            }
+        }
         button.setOnClickListener {
             startActivity(Intent(context, ServiceCentreInfoActivity::class.java))
 
@@ -48,19 +69,21 @@ class ModalBottomSheet : BottomSheetDialogFragment() {
         return something
     }
 
+
+
     companion object {
         const val TAG = "ModalBottomSheet"
     }
 }
 
 class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-
+    var usersList = mutableListOf<userItem>()
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityNearbyServiceCenterGeoBinding
     private var cameraPosition: CameraPosition? = null
     private lateinit var placesClient: PlacesClient
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    val modalBottomSheet = ModalBottomSheet()
+    private val modalBottomSheet = ModalBottomSheet()
 
     private val defaultLocation = LatLng(-33.8523341, 151.2106085)
     private var locationPermissionGranted = false
@@ -76,6 +99,42 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
 
         binding = ActivityNearbyServiceCenterGeoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        GlobalScope.launch {
+            val oxfordApi = RetrofitHelper.getInstance().create(DBApi::class.java)
+            val users = oxfordApi.getUsers().body()
+
+            val jsonObject = JSONObject()
+            jsonObject.put("name", "Jack")
+            jsonObject.put("salary", "3540")
+            jsonObject.put("age", "23")
+
+            val jsonObjectString = jsonObject.toString()
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+
+            val requestBody = RequestBody.create(mediaType, jsonObjectString)
+            val response = oxfordApi.createEmployee(requestBody)
+
+            runOnUiThread(Runnable {
+                if (users != null) {
+                    for (i in users.indices) {
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(LatLng(users[i].latitude, users[i].longitude))
+                                .title(users[i].admin_id.toString())
+
+                        )
+                        usersList.add(users[i])
+
+                    }
+
+                }
+                Log.i("result", users.toString())
+
+            })
+
+        }
+
 
         Places.initialize(applicationContext, "AIzaSyAY0O8EOmuGiO6SmQAm7s8UfTzaTI77sUk")
         placesClient = Places.createClient(this)
@@ -194,6 +253,9 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
     }
 
     override fun onMarkerClick(p0: Marker): Boolean {
+        modalBottomSheet.userList = usersList
+        modalBottomSheet.id = p0.id.toString()
+        Log.i("resulttt", p0.id.toString())
         modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
 
         return false
