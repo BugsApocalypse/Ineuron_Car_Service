@@ -96,7 +96,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/et_custom"
         android:fontFamily="rob"
-        android:hint="Enter the Address"
+        android:hint="Enter Latitude"
         android:inputType="numberDecimal"
         android:padding="15dp"
         android:textSize="15sp" />
@@ -139,8 +139,8 @@
             android:layout_alignTop="@+id/btn_signup_admin"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/roboto"
             android:text="@string/login_account"
             android:textSize="15sp" />
