@@ -23,6 +23,10 @@ class SignupActivityUser : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        binding.btnSignupAdmin.setOnClickListener {
+            val intent = Intent(this, SignupActivityAdmin::class.java)
+            startActivity(intent)
+        }
         binding.btnSignup.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val pass = binding.etPassword.text.toString()

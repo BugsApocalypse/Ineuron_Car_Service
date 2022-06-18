@@ -16,6 +16,8 @@
     <string name="latitude">Enter Latitude</string>
     <string name="longitude">Enter Longitude</string>
     <string name="service_centre">Service Centre Admin</string>
+    <string name="login_here"><u>Login here</u></string>
+    <string name="admin_signup"> <u>Admin Signup</u></string>
 
 
 </resources>

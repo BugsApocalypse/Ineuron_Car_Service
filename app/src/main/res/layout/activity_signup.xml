@@ -135,14 +135,25 @@
             android:id="@+id/switchLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btn_signup"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginBottom="21dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/login_account"
-            android:textSize="15sp" />
+            android:text="@string/login_here"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/btn_signup_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="21dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/admin_signup"
+            android:textSize="17sp" />
 
     </RelativeLayout>
 
