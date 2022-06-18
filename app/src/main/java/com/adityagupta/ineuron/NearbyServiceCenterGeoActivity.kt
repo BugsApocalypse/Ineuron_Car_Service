@@ -38,8 +38,8 @@ class ModalBottomSheet : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var something = inflater.inflate(R.layout.workshop_mini_details_bottom_sheet, container, false)
-        var button = something.findViewById<Button>(R.id.bsBookServiceButton)
+        val something = inflater.inflate(R.layout.workshop_mini_details_bottom_sheet, container, false)
+        val button = something.findViewById<Button>(R.id.bsBookServiceButton)
         button.setOnClickListener {
             startActivity(Intent(context, ServiceCentreInfoActivity::class.java))
 
