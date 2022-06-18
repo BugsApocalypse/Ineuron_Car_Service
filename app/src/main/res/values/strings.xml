@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Ineuron</string>
+    <string name="title_activity_nearby_service_center_geo">NearbyServiceCenterGeoActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="create_account">Not registered yet? <u>Create an account</u></string>
     <string name="login_account">Already have an account? <u>Login here</u></string>
@@ -15,4 +16,7 @@
     <string name="latitude">Enter Latitude</string>
     <string name="longitude">Enter Longitude</string>
 
+=======
+    <string name="title_activity_nearby_service_center_geo">NearbyServiceCenterGeoActivity</string>
+>>>>>>> 37d5f462c40343f906350079c46a070588b089b7
 </resources>
