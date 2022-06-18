@@ -73,7 +73,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/et_phone_number"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
@@ -84,33 +84,6 @@
         android:hint="@string/phone_no"
         android:inputType="number"
         android:padding="15dp"
-        android:textSize="15sp" />
-
-    <EditText
-        android:id="@+id/loc_latitude"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/et_custom"
-        android:fontFamily="rob"
-        android:hint="@string/latitude"
-        android:inputType="numberDecimal"
-        android:padding="15dp"
-        android:textSize="15sp" />
-
-    <EditText
-        android:id="@+id/loc_longitude"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/longitude"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="15dp"
-        android:fontFamily="rob"
-        android:inputType="numberDecimal"
-        android:background="@drawable/et_custom"
         android:textSize="15sp" />
 
     <RelativeLayout

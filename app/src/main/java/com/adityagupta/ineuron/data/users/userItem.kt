@@ -7,5 +7,6 @@ data class userItem(
     val latitude: Double,
     val longitude: Double,
     val name: String,
+    val description: String,
     val phone_number: String
 )

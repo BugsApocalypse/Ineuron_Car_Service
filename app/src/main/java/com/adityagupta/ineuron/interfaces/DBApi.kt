@@ -9,11 +9,14 @@ import retrofit2.http.*
 
 interface DBApi {
 
-    @GET("users")
+    @GET("admins")
     suspend fun getUsers(): Response<user>
 
-    @POST("services")
-    suspend fun createEmployee(@Body requestBody: RequestBody): Response<ResponseBody>
+    @POST("createadmin")
+    suspend fun createAdmin(@Body requestBody: RequestBody): Response<ResponseBody>
+
+    @POST("createuser")
+    suspend fun createUser(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @GET("services2")
     suspend fun getServices(@Query("adminid") id: String): Response<services>

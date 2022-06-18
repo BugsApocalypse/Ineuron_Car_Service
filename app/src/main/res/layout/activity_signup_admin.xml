@@ -74,7 +74,7 @@
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/et_phone_number"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
@@ -113,6 +113,17 @@
         android:inputType="numberDecimal"
         android:background="@drawable/et_custom"
         android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/et_description_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="description"
+        android:inputType="textPersonName" />
 
     <RelativeLayout
         android:layout_width="match_parent"

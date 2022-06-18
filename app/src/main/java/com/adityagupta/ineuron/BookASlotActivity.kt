@@ -137,6 +137,7 @@ class BookASlotActivity : AppCompatActivity() {
                 jsonObject.put("time", time)
                 jsonObject.put("date", date)
                 jsonObject.put("admin_id", adminId )
+                jsonObject.put("user_id", "1" )
 
                 val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
                 val response = oxfordApi.createBooking(requestBody)

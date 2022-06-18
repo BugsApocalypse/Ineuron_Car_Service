@@ -57,7 +57,6 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
             Log.i("result",userList[i].admin_id.toString() )
             if(userList[i].admin_id.toString() == id){
                 titleTextView.text = userList[i].title
-                titleTextView.text = userList[i].name
                 Log.i("resulttt", userList[i].admin_id.toString())
                 break
             }
@@ -118,18 +117,7 @@ class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, 
             val users = oxfordApi.getUsers().body()
 
 
-            val jsonObject = JSONObject()
-            jsonObject.put("name", "Jack")
-            jsonObject.put("salary", "3540")
-            jsonObject.put("age", "23")
 
-            val jsonObjectString = jsonObject.toString()
-
-            //Log.i("something")
-            val mediaType = "application/json; charset=utf-8".toMediaType()
-
-            val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
-            val response = oxfordApi.createEmployee(requestBody)
 
             runOnUiThread(Runnable {
                 if (users != null) {
