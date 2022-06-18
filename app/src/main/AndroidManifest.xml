@@ -5,7 +5,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ineuron"
         tools:targetApi="31">
+        <activity
+            android:name=".UserBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignupActivityAdmin"
+            android:exported="false" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"
@@ -45,19 +52,15 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".SignupActivityUser"
-            android:exported="true"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".SignupActivityAdmin"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".BookASlotActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ServiceCentreInfoActivity"
             android:exported="false"

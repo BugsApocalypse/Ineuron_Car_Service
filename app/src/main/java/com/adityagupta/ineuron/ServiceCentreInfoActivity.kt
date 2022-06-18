@@ -19,9 +19,9 @@ class ServiceCentreInfoActivity : AppCompatActivity() {
 
         binding.wdTitleText.text = intent.getStringExtra("title")
         binding.wdNumber.text = intent.getStringExtra("number")
-        Log.i("something", intent.getStringExtra("title")!!)
         binding.bookASlotButton.setOnClickListener {
-            startActivity(Intent(this, BookASlotActivity::class.java))
+
+            startActivity(Intent(this, BookASlotActivity::class.java).putExtra("admin_id", intent.getStringExtra("admin_id")))
         }
     }
 }
