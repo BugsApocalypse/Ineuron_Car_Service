@@ -17,7 +17,9 @@
         android:theme="@style/Theme.Ineuron"
         tools:targetApi="31">
         <activity
-            android:name=".BookASlotActivity"
+
+
+            android:name=".Payment"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -39,6 +41,9 @@
             android:exported="false"
             android:label="@string/title_activity_nearby_service_center_geo" />
         <activity
+            android:name=".SignupActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
@@ -47,12 +52,20 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
+
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
