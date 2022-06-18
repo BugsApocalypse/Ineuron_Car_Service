@@ -4,17 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.adityagupta.ineuron.databinding.ActivitySignupAdminBinding
 import com.adityagupta.ineuron.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class SignupActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignupBinding
+class SignupActivityAdmin : AppCompatActivity() {
+    private lateinit var binding: ActivitySignupAdminBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySignupBinding.inflate(layoutInflater)
+        binding = ActivitySignupAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -23,10 +24,11 @@ class SignupActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        binding.btnSignup.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val pass = binding.etPassword.text.toString()
-            val confirmPass = binding.etRepassword.text.toString()
+        binding.btnSignupAdmin.setOnClickListener {
+            val email = binding.etEmailAdmin.text.toString()
+            val pass = binding.etPasswordAdmin.text.toString()
+            val confirmPass = binding.etRepasswordAdmin.text.toString()
+
 
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
