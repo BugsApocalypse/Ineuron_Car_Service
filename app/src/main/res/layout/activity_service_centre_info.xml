@@ -21,28 +21,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Honda"
-                android:textSize="24dp"
+                android:textSize="34dp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="32dp" />
+                tools:layout_editor_absoluteY="127dp" />
 
             <ImageView
                 android:id="@+id/wdImage"
                 android:layout_width="215dp"
                 android:layout_height="183dp"
-                android:layout_marginTop="104dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wdTitleText"
-                app:srcCompat="@drawable/honda" />
+                app:srcCompat="@drawable/honda"
+                tools:layout_editor_absoluteY="210dp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -105,6 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textStyle="bold"
                 android:text="16 cross road, srirampura, bangalore, 570008"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,26 +123,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/wdAddress" />
 
-            <Button
-                android:id="@+id/bsBookServiceButton"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:text="CALL"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/wdNumber"
-                app:layout_constraintStart_toStartOf="@+id/wdNumber"
-                app:layout_constraintTop_toBottomOf="@+id/wdNumber" />
+<!--            <Button-->
+<!--                android:id="@+id/bsBookServiceButton"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:text="CALL"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/wdNumber"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/wdNumber"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/wdNumber" />-->
 
             <Button
                 android:id="@+id/bookASlotButton"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:text="BOOK A SLOT"
+                android:background="@color/blue"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/bsBookServiceButton"
-                app:layout_constraintStart_toStartOf="@+id/bsBookServiceButton"
-                app:layout_constraintTop_toBottomOf="@+id/bsBookServiceButton"
-                app:layout_constraintVertical_bias="0.2" />
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wdAddress" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/logout"
@@ -150,7 +154,8 @@
                 android:backgroundTint="@color/blue"
                 app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
                 tools:layout_editor_absoluteX="339dp"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteY="16dp"
+                tools:ignore="MissingConstraints" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
