@@ -1,7 +1,10 @@
 package com.adityagupta.ineuron
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.Toast
 import com.adityagupta.ineuron.databinding.ActivityLoginBinding
 import com.adityagupta.ineuron.databinding.ActivityPaymentBinding
@@ -20,8 +23,24 @@ class PaymentActivity : AppCompatActivity(), PaymentResultListener {
 
         Checkout.preload(getApplicationContext())
 
+        binding.payServiceAmount.text = intent.getStringExtra("cost")
+        binding.payServiceType.text = intent.getStringExtra("type")
+        binding.payServiceTime.text = intent.getStringExtra("time")
+        binding.payServiceDate.text = intent.getStringExtra("date")
         binding.pay.setOnClickListener {
-            makePayment()
+            if(binding.checkBox.isChecked){
+                binding.yourBookingConfirmed.visibility = View.VISIBLE
+                binding.checkImage.visibility  = View.VISIBLE
+
+                val handler = Handler()
+                handler.postDelayed(
+                    Runnable {  startActivity(Intent(this, UserBookingsActivity::class.java))
+                    },
+                    2000
+                )
+            }else {
+                makePayment()
+            }
         }
     }
 
