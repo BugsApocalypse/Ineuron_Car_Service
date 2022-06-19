@@ -1,101 +1,65 @@
 package com.adityagupta.ineuron
 
-import android.R
-import android.app.Activity
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
 import android.widget.Toast
+import com.adityagupta.ineuron.databinding.ActivityLoginBinding
 import com.adityagupta.ineuron.databinding.ActivityPaymentBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.razorpay.Checkout
+import com.razorpay.PaymentResultListener
 import org.json.JSONObject
 
-class PaymentActivity: Activity() {
+class PaymentActivity : AppCompatActivity(), PaymentResultListener {
 
-    val TAG: String = PaymentActivity::class.toString()
     private lateinit var binding: ActivityPaymentBinding
-    private lateinit var logout: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Checkout.preload(getApplicationContext())
 
-        binding.payServiceAmount.text = intent.getStringExtra("cost")
-        binding.payServiceType.text = intent.getStringExtra("type")
-        binding.payServiceTime.text = intent.getStringExtra("time")
-        binding.payServiceDate.text = intent.getStringExtra("date")
-        binding.logout.setOnClickListener(){
-            Firebase.auth.signOut()
-            val intent = Intent(this, PaymentActivity::class.java)
-            startActivity(intent)
-            startActivity(Intent(this,LoginActivity::class.java))
-            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show()
-        }
-
-        Checkout.preload(applicationContext)
         binding.pay.setOnClickListener {
-            if(!binding.checkBox.isChecked) {
-                startPayment()
-            }else{
-                binding.yourBookingConfirmed.visibility = View.VISIBLE
-                binding.checkImage.visibility  = View.VISIBLE
-
-                val handler = Handler()
-                handler.postDelayed(
-                    Runnable {  startActivity(Intent(this, UserBookingsActivity::class.java))
-                    },
-                    2000
-                )
-            }
-
+            makePayment()
         }
     }
 
-    private fun startPayment() {
+    private fun makePayment() {
+        val co = Checkout()
 
-        val activity: Activity = this
+        try {
+            val options = JSONObject()
+            options.put("name","INeuron Car-Services")
+            options.put("description","Car Services Payment")
+            //You can omit the image option to fetch the image from dashboard
+            options.put("image","https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
+            options.put("theme.color", "#3399cc");
+            options.put("currency","INR");
+            options.put("amount","10000")//pass amount in currency subunits
 
+            /* val retryObj =  JSONObject()
+             retryObj.put("enabled", true);
+             retryObj.put("max_count", 4);
+             options.put("retry", retryObj);*/
 
-            val co = Checkout()
+            val prefill = JSONObject()
+            prefill.put("email","sohailss2412@gmail.com")
+            prefill.put("contact","7061552655")
 
-            try {
-                val options = JSONObject()
-                options.put("name", "Razorpay Corp")
-                options.put("description", "Demoing Charges")
-                options.put("name", "INeuron Car Service")
-                options.put("description", "Car Service Payment")
-                //You can omit the image option to fetch the image from dashboard
-                options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
-                options.put("theme.color", "#3399cc");
-                options.put("currency", "INR");
-                options.put("order_id", "order_DBJOWzybf0sJbb");
-                options.put("amount", "50000")//pass amount in currency subunits
-                options.put("currency", "INR");
-                options.put("amount", "1000")//pass amount in currency subunits
+            options.put("prefill",prefill)
+            co.open(this,options)
+        }catch (e: Exception){
+            Toast.makeText(this,"Error in payment: "+ e.message,Toast.LENGTH_LONG).show()
+            e.printStackTrace()
+        }
+    }
 
-//            val retryObj = JSONObject();
-//            retryObj.put("enabled", true);
-//            retryObj.put("max_count", 4);
-//            options.put("retry", retryObj);
+    override fun onPaymentSuccess(p0: String?) {
+        Toast.makeText(this, "Payment Sucsess: $p0",Toast.LENGTH_LONG).show()
+    }
 
-                val prefill = JSONObject()
-                prefill.put("email", "gaurav.kumar@example.com")
-                prefill.put("contact", "9876543210")
-
-                options.put("prefill", prefill)
-                co.open(activity, options)
-                startActivity(Intent(this, UserBookingsActivity::class.java))
-
-            } catch (e: Exception) {
-                Toast.makeText(activity, "Error in payment: " + e.message, Toast.LENGTH_LONG).show()
-                e.printStackTrace()
-            }
-
+    override fun onPaymentError(p0: Int, p1: String?) {
+        Toast.makeText(this, "Payment Failed: $p1",Toast.LENGTH_LONG).show()
     }
 }
