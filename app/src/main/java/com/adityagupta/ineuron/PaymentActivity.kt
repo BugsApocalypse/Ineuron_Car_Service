@@ -2,6 +2,7 @@ package com.adityagupta.ineuron
 
 import android.R
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -9,6 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.adityagupta.ineuron.databinding.ActivityLoginBinding
 import com.adityagupta.ineuron.databinding.ActivityPaymentBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.razorpay.Checkout
 import com.razorpay.PaymentResultListener
 import org.json.JSONObject
@@ -17,11 +22,20 @@ class PaymentActivity: Activity() {
 
     val TAG: String = PaymentActivity::class.toString()
     private lateinit var binding: ActivityPaymentBinding
+    private lateinit var logout: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.logout.setOnClickListener(){
+            Firebase.auth.signOut()
+            val intent = Intent(this, PaymentActivity::class.java)
+            startActivity(intent)
+            startActivity(Intent(this,LoginActivity::class.java))
+            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show()
+        }
 
         Checkout.preload(applicationContext)
         binding.pay.setOnClickListener {

@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.adityagupta.ineuron.data.users.user
 import com.adityagupta.ineuron.data.users.userItem
+import com.adityagupta.ineuron.databinding.ActivityLoginBinding
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -35,6 +36,7 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
@@ -44,8 +46,11 @@ import org.json.JSONObject
 
 class ModalBottomSheet() : BottomSheetDialogFragment() {
     var userList = mutableListOf<userItem>()
+    lateinit var logout:FloatingActionButton
+    private lateinit var binding: ActivityNearbyServiceCenterGeoBinding
     var id = ""
     override fun onCreateView(
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -75,7 +80,6 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
                 }
             }
             startActivity(intent)
-
         }
 
         return something
@@ -86,6 +90,7 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
     companion object {
         const val TAG = "ModalBottomSheet"
     }
+
 }
 
 class NearbyServiceCenterGeoActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {

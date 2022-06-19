@@ -12,24 +12,26 @@
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-android:layout_height="match_parent"
-    android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="736dp">
+
 
             <TextView
                 android:id="@+id/wdTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="Honda"
+                android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="32dp" />
 
             <ImageView
                 android:id="@+id/wdImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_width="215dp"
+                android:layout_height="183dp"
+                android:layout_marginTop="104dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/wdTitleText"
@@ -121,8 +123,8 @@ android:layout_height="match_parent"
 
             <Button
                 android:id="@+id/bsBookServiceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:text="CALL"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/wdNumber"
@@ -131,14 +133,24 @@ android:layout_height="match_parent"
 
             <Button
                 android:id="@+id/bookASlotButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:text="BOOK A SLOT"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/bsBookServiceButton"
                 app:layout_constraintStart_toStartOf="@+id/bsBookServiceButton"
                 app:layout_constraintTop_toBottomOf="@+id/bsBookServiceButton"
-                app:layout_constraintVertical_bias="0.49" />
+                app:layout_constraintVertical_bias="0.2" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:backgroundTint="@color/blue"
+                app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
+                tools:layout_editor_absoluteX="339dp"
+                tools:layout_editor_absoluteY="16dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

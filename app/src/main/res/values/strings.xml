@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ineuron</string>
+    <string name="app_name">Ineuron Car-Service</string>
     <string name="title_activity_nearby_service_center_geo">NearbyServiceCenterGeoActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="create_account">Not registered yet? <u>Create an account</u></string>
