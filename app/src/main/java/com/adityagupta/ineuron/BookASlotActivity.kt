@@ -45,6 +45,7 @@ class BookASlotActivity : AppCompatActivity() {
 
         val oxfordApi = RetrofitHelper.getInstance().create(DBApi::class.java)
         adminId = intent.getStringExtra("admin_id").toString()
+
         GlobalScope.launch {
             var services = oxfordApi.getServices(adminId!!).body()
             var ii = oxfordApi.getUserId().body()
@@ -140,7 +141,7 @@ class BookASlotActivity : AppCompatActivity() {
                 jsonObject.put("time", time)
                 jsonObject.put("date", date)
                 jsonObject.put("admin_id", adminId )
-                jsonObject.put("user_id", Idd )
+                jsonObject.put("user_id", "1" )
 
                 val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
                 val response = oxfordApi.createBooking(requestBody)
