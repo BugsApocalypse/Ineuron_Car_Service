@@ -28,4 +28,9 @@ deals on app
  - Firebase for Authentication
  - Coroutines for Network calls
 
+# Backend
+ - We used MYSQL for our database
+ - Microsoft Azure to deploy our database to cloud
+ - Express.js to create our REST Server
+
 
