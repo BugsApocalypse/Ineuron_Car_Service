@@ -25,7 +25,7 @@ class CustomAdapter(private val dataSet: Response<bookings>) :
 
         init {
             // Define click listener for the ViewHolder's View.
-            bookingid = view.findViewById(R.id.bookingId)
+            bookingid = view.findViewById(R.id.bookingIdText)
             date = view.findViewById(R.id.bookingDate)
             time = view.findViewById(R.id.bookingTime)
             type = view.findViewById(R.id.serviceType)
