@@ -150,12 +150,12 @@
                 android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
                 android:backgroundTint="@color/blue"
+                android:clickable="true"
                 app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
+                tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="339dp"
-                tools:layout_editor_absoluteY="16dp"
-                tools:ignore="MissingConstraints" />
+                tools:layout_editor_absoluteY="37dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
