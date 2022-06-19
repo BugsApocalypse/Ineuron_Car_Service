@@ -47,38 +47,39 @@ class PaymentActivity: Activity() {
 
         val activity: Activity = this
 
-    private fun startPayment(){
-        val co = Checkout()
+        fun startPayment() {
+            val co = Checkout()
 
-        try {
-            val options = JSONObject()
-            options.put("name", "Razorpay Corp")
-            options.put("description", "Demoing Charges")
-            options.put("name","INeuron Car Service")
-            options.put("description","Car Service Payment")
-            //You can omit the image option to fetch the image from dashboard
-            options.put("image","https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
-            options.put("theme.color", "#3399cc");
-            options.put("currency", "INR");
-            options.put("order_id", "order_DBJOWzybf0sJbb");
-            options.put("amount", "50000")//pass amount in currency subunits
-            options.put("currency","INR");
-            options.put("amount","1000")//pass amount in currency subunits
+            try {
+                val options = JSONObject()
+                options.put("name", "Razorpay Corp")
+                options.put("description", "Demoing Charges")
+                options.put("name", "INeuron Car Service")
+                options.put("description", "Car Service Payment")
+                //You can omit the image option to fetch the image from dashboard
+                options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
+                options.put("theme.color", "#3399cc");
+                options.put("currency", "INR");
+                options.put("order_id", "order_DBJOWzybf0sJbb");
+                options.put("amount", "50000")//pass amount in currency subunits
+                options.put("currency", "INR");
+                options.put("amount", "1000")//pass amount in currency subunits
 
 //            val retryObj = JSONObject();
 //            retryObj.put("enabled", true);
 //            retryObj.put("max_count", 4);
 //            options.put("retry", retryObj);
 
-            val prefill = JSONObject()
-            prefill.put("email", "gaurav.kumar@example.com")
-            prefill.put("contact", "9876543210")
+                val prefill = JSONObject()
+                prefill.put("email", "gaurav.kumar@example.com")
+                prefill.put("contact", "9876543210")
 
-            options.put("prefill", prefill)
-            co.open(activity, options)
-        } catch (e: Exception) {
-            Toast.makeText(activity, "Error in payment: " + e.message, Toast.LENGTH_LONG).show()
-            e.printStackTrace()
+                options.put("prefill", prefill)
+                co.open(activity, options)
+            } catch (e: Exception) {
+                Toast.makeText(activity, "Error in payment: " + e.message, Toast.LENGTH_LONG).show()
+                e.printStackTrace()
+            }
         }
     }
 }

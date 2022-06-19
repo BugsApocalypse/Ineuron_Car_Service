@@ -1,5 +1,6 @@
 package com.adityagupta.ineuron.interfaces
 
+import com.adityagupta.ineuron.data.Admin.bookingsAdmin
 import com.adityagupta.ineuron.data.bookings.bookings
 import com.adityagupta.ineuron.data.services.services
 import com.adityagupta.ineuron.data.users.user
@@ -31,5 +32,8 @@ interface DBApi {
 
     @GET("getallbookings")
     suspend fun getAllBookings(@Query("userid") uid: String): Response<bookings>
+
+    @GET("getallbookingsadmin")
+    suspend fun getAllAdminBookings(@Query("adminid") uid: String): Response<bookingsAdmin>
 
 }

@@ -76,6 +76,7 @@ class ModalBottomSheet() : BottomSheetDialogFragment() {
                     intent.putExtra("email", userList[i].email)
                     intent.putExtra("lat", userList[i].latitude)
                     intent.putExtra("lon", userList[i].longitude)
+                    intent.putExtra("url", userList[i].imageurl.toString())
                     break
                 }
             }

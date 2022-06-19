@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.adityagupta.ineuron.databinding.ActivityNearbyServiceCenterGeoBinding
 import com.adityagupta.ineuron.databinding.ActivityServiceCentreInfoBinding
+import com.squareup.picasso.Picasso
 
 class ServiceCentreInfoActivity : AppCompatActivity() {
     lateinit var binding: ActivityServiceCentreInfoBinding
@@ -19,6 +20,14 @@ class ServiceCentreInfoActivity : AppCompatActivity() {
 
         binding.wdTitleText.text = intent.getStringExtra("title")
         binding.wdNumber.text = intent.getStringExtra("number")
+
+        Log.i("url", intent.getStringExtra("url").toString())
+
+
+        Picasso.with(applicationContext)
+            .load(intent.getStringExtra("url").toString())
+            .into(binding.wdImage)
+        binding.wdImage
         binding.bookASlotButton.setOnClickListener {
 
             startActivity(Intent(this, BookASlotActivity::class.java).putExtra("admin_id", intent.getStringExtra("admin_id")))

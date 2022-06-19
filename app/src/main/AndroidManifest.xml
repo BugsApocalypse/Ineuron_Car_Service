@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.adityagupta.ineuron" >
+    package="com.adityagupta.ineuron">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ineuron"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".AdminBookingListActivity"
+            android:exported="false" />
         <activity
             android:name=".PaymentActivity"
             android:exported="true" />
@@ -69,7 +72,7 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             <intent-filter>
@@ -87,9 +90,7 @@
             android:value="rzp_test_og6dhjAsmJ1Tk2" />
         <meta-data
             android:name="com.google.gms.wallet.api.enabled"
-            android:value="true"
-            />
-
+            android:value="true" />
     </application>
 
 </manifest>

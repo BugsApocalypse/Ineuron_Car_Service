@@ -71,7 +71,7 @@ class SignupActivityAdmin : AppCompatActivity() {
                                 Log.i("qwerty", response.toString())
 
                             }
-                            val intent = Intent(this, LoginActivity::class.java)
+                            val intent = Intent(this, AdminBookingListActivity::class.java)
                             startActivity(intent)
 
                         } else {

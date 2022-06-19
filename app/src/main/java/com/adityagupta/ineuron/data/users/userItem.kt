@@ -8,5 +8,6 @@ data class userItem(
     val longitude: Double,
     val name: String,
     val description: String,
-    val phone_number: String
+    val phone_number: String,
+    val imageurl: String
 )
