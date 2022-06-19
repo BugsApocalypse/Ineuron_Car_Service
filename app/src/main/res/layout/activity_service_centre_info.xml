@@ -116,12 +116,12 @@
                 android:id="@+id/wdNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="8709004620"
+                app:layout_constraintBottom_toTopOf="@+id/bookASlotButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wdAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 <!--            <Button-->
 <!--                android:id="@+id/bsBookServiceButton"-->
@@ -137,8 +137,8 @@
                 android:id="@+id/bookASlotButton"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:text="BOOK A SLOT"
                 android:background="@color/blue"
+                android:text="BOOK A SLOT"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
 
@@ -152,10 +152,16 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/blue"
                 android:clickable="true"
+                app:layout_constraintBottom_toTopOf="@+id/wdImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.46"
+                app:layout_constraintStart_toEndOf="@+id/wdTitleText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.506"
+                android:layout_marginLeft="70dp"
+                android:layout_marginBottom="120dp"
                 app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="339dp"
-                tools:layout_editor_absoluteY="37dp" />
+                tools:ignore="MissingConstraints" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
