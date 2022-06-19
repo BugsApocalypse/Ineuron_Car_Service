@@ -18,11 +18,11 @@
         android:theme="@style/Theme.Ineuron"
         tools:targetApi="31">
         <activity
-            android:name=".AdminBookingListActivity"
+            android:name=".PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentActivity"
-            android:exported="true" />
+            android:name=".AdminBookingListActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"

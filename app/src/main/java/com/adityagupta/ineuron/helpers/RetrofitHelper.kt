@@ -11,7 +11,6 @@ object RetrofitHelper {
 
     val baseUrl = "https://4d0b-14-97-167-154.in.ngrok.io"
 
-
     fun getInstance(): Retrofit {
 
         val gson = GsonBuilder()
