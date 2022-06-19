@@ -59,7 +59,7 @@ class SignupActivityUser : AppCompatActivity() {
 
                                 val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
                                 val response = oxfordApi.createUser(requestBody)
-                                Log.i("qwerty", response.toString())
+
 
                             }
 

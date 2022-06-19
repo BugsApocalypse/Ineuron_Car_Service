@@ -10,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.adityagupta.ineuron.databinding.ActivityLoginBinding
 import com.adityagupta.ineuron.databinding.ActivityPaymentBinding
 import com.razorpay.Checkout
+import com.razorpay.PaymentResultListener
 import org.json.JSONObject
 
-class PaymentActivity: Activity(), PaymentResultListener {
+class PaymentActivity: Activity() {
 
-    val TAG:String = PaymentActivity::class.toString()
+    val TAG: String = PaymentActivity::class.toString()
     private lateinit var binding: ActivityPaymentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,19 +35,19 @@ class PaymentActivity: Activity(), PaymentResultListener {
 
     private fun startPayment() {
 
-        val activity:Activity = this
+        val activity: Activity = this
         val co = Checkout()
 
         try {
             val options = JSONObject()
-            options.put("name","Razorpay Corp")
-            options.put("description","Demoing Charges")
+            options.put("name", "Razorpay Corp")
+            options.put("description", "Demoing Charges")
             //You can omit the image option to fetch the image from dashboard
-            options.put("image","https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
+            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
             options.put("theme.color", "#3399cc");
-            options.put("currency","INR");
+            options.put("currency", "INR");
             options.put("order_id", "order_DBJOWzybf0sJbb");
-            options.put("amount","50000")//pass amount in currency subunits
+            options.put("amount", "50000")//pass amount in currency subunits
 
             val retryObj = JSONObject();
             retryObj.put("enabled", true);
@@ -54,13 +55,14 @@ class PaymentActivity: Activity(), PaymentResultListener {
             options.put("retry", retryObj);
 
             val prefill = JSONObject()
-            prefill.put("email","gaurav.kumar@example.com")
-            prefill.put("contact","9876543210")
+            prefill.put("email", "gaurav.kumar@example.com")
+            prefill.put("contact", "9876543210")
 
-            options.put("prefill",prefill)
-            co.open(activity,options)
-        }catch (e: Exception){
-            Toast.makeText(activity,"Error in payment: "+ e.message,Toast.LENGTH_LONG).show()
+            options.put("prefill", prefill)
+            co.open(activity, options)
+        } catch (e: Exception) {
+            Toast.makeText(activity, "Error in payment: " + e.message, Toast.LENGTH_LONG).show()
             e.printStackTrace()
         }
     }
+}

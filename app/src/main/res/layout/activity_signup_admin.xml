@@ -123,7 +123,8 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:hint="description"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

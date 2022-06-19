@@ -49,6 +49,10 @@
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
+            android:name=".UserBookingsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
             android:name=".SignupActivityAdmin"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" />

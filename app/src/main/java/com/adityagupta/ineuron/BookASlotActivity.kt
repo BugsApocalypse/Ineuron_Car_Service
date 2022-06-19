@@ -27,11 +27,13 @@ import java.util.*
 
 class BookASlotActivity : AppCompatActivity() {
 
+
     val items = mutableListOf<String>()
     var time = ""
     var date = ""
     var adminId = ""
     var serviceId = ""
+    var Idd = ""
     val serviceList = mutableListOf<servicesItem>()
     lateinit var binding: ActivityBookAslotBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,11 +45,12 @@ class BookASlotActivity : AppCompatActivity() {
 
         val oxfordApi = RetrofitHelper.getInstance().create(DBApi::class.java)
         adminId = intent.getStringExtra("admin_id").toString()
-
         GlobalScope.launch {
             var services = oxfordApi.getServices(adminId!!).body()
+            var ii = oxfordApi.getUserId().body()
+            Idd = ii?.get(0)?.user_id.toString()
 
-
+            Log.i("werty", Idd)
             runOnUiThread(Runnable {
                 if (services != null) {
                     for (i in services.indices) {
@@ -137,13 +140,16 @@ class BookASlotActivity : AppCompatActivity() {
                 jsonObject.put("time", time)
                 jsonObject.put("date", date)
                 jsonObject.put("admin_id", adminId )
-                jsonObject.put("user_id", "1" )
+                jsonObject.put("user_id", Idd )
 
                 val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
                 val response = oxfordApi.createBooking(requestBody)
+                runOnUiThread(Runnable {
+                    val intent = Intent(applicationContext, UserBookingsActivity::class.java)
+                    startActivity(Intent(applicationContext, UserBookingsActivity::class.java))
+                })
             }
-            val intent = Intent(this, Payment::class.java)
-            startActivity(Intent(this, Payment::class.java))
+
         }
     }
 
