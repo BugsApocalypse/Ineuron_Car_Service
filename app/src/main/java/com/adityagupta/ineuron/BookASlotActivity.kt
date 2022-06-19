@@ -142,8 +142,8 @@ class BookASlotActivity : AppCompatActivity() {
                 val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
                 val response = oxfordApi.createBooking(requestBody)
             }
-            val intent = Intent(this, Payment::class.java)
-            startActivity(Intent(this, Payment::class.java))
+            val intent = Intent(this, PaymentActivity::class.java)
+            startActivity(Intent(this, PaymentActivity::class.java))
         }
     }
 
