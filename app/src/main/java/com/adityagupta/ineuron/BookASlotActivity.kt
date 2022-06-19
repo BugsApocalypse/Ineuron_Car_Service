@@ -34,6 +34,8 @@ class BookASlotActivity : AppCompatActivity() {
     var adminId = ""
     var serviceId = ""
     var Idd = ""
+    var serv = ""
+    var amount = ""
     val serviceList = mutableListOf<servicesItem>()
     lateinit var binding: ActivityBookAslotBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -134,6 +136,8 @@ class BookASlotActivity : AppCompatActivity() {
                 for(i in serviceList.indices){
                     if(serviceList[i].service_type == selectedServ){
                         servId = serviceList[i].service_id.toString()
+                        serv = serviceList[i].service_type.toString()
+                        amount = serviceList[i].service_cost.toString()
                     }
                 }
                 val jsonObject = JSONObject()
@@ -146,8 +150,12 @@ class BookASlotActivity : AppCompatActivity() {
                 val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
                 val response = oxfordApi.createBooking(requestBody)
                 runOnUiThread(Runnable {
-                    val intent = Intent(applicationContext, UserBookingsActivity::class.java)
-                    startActivity(Intent(applicationContext, UserBookingsActivity::class.java))
+                    val intent = Intent(applicationContext, PaymentActivity::class.java)
+                    intent.putExtra("time", time.toString())
+                    intent.putExtra("date", date.toString())
+                    intent.putExtra("type", serv.toString())
+                    intent.putExtra("cost", amount.toString())
+                    startActivity(Intent(applicationContext, PaymentActivity::class.java))
                 })
             }
 

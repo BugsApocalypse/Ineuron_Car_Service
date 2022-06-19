@@ -4,18 +4,14 @@ import android.R
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
+import android.os.Handler
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.adityagupta.ineuron.databinding.ActivityLoginBinding
 import com.adityagupta.ineuron.databinding.ActivityPaymentBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.razorpay.Checkout
-import com.razorpay.PaymentResultListener
 import org.json.JSONObject
 
 class PaymentActivity: Activity() {
@@ -29,6 +25,11 @@ class PaymentActivity: Activity() {
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.payServiceAmount.text = intent.getStringExtra("cost")
+        binding.payServiceType.text = intent.getStringExtra("type")
+        binding.payServiceTime.text = intent.getStringExtra("time")
+        binding.payServiceDate.text = intent.getStringExtra("date")
         binding.logout.setOnClickListener(){
             Firebase.auth.signOut()
             val intent = Intent(this, PaymentActivity::class.java)
@@ -39,7 +40,20 @@ class PaymentActivity: Activity() {
 
         Checkout.preload(applicationContext)
         binding.pay.setOnClickListener {
-            startPayment()
+            if(!binding.checkBox.isChecked) {
+                startPayment()
+            }else{
+                binding.yourBookingConfirmed.visibility = View.VISIBLE
+                binding.checkImage.visibility  = View.VISIBLE
+
+                val handler = Handler()
+                handler.postDelayed(
+                    Runnable {  startActivity(Intent(this, UserBookingsActivity::class.java))
+                    },
+                    2000
+                )
+            }
+
         }
     }
 
@@ -47,7 +61,7 @@ class PaymentActivity: Activity() {
 
         val activity: Activity = this
 
-        fun startPayment() {
+
             val co = Checkout()
 
             try {
@@ -76,10 +90,12 @@ class PaymentActivity: Activity() {
 
                 options.put("prefill", prefill)
                 co.open(activity, options)
+                startActivity(Intent(this, UserBookingsActivity::class.java))
+
             } catch (e: Exception) {
                 Toast.makeText(activity, "Error in payment: " + e.message, Toast.LENGTH_LONG).show()
                 e.printStackTrace()
             }
-        }
+
     }
 }
