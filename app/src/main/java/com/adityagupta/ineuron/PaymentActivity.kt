@@ -25,18 +25,18 @@ class PaymentActivity: Activity() {
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.payServiceAmount.text = intent.getStringExtra("cost")
         binding.payServiceType.text = intent.getStringExtra("type")
         binding.payServiceTime.text = intent.getStringExtra("time")
         binding.payServiceDate.text = intent.getStringExtra("date")
-        binding.logout.setOnClickListener(){
+
+       /* binding.logout.setOnClickListener(){
             Firebase.auth.signOut()
             val intent = Intent(this, PaymentActivity::class.java)
             startActivity(intent)
             startActivity(Intent(this,LoginActivity::class.java))
             Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show()
-        }
+        }*/
 
         Checkout.preload(applicationContext)
         binding.pay.setOnClickListener {

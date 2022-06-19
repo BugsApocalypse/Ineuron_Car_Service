@@ -155,7 +155,7 @@ class BookASlotActivity : AppCompatActivity() {
                     intent.putExtra("date", date.toString())
                     intent.putExtra("type", serv.toString())
                     intent.putExtra("cost", amount.toString())
-                    startActivity(Intent(applicationContext, PaymentActivity::class.java))
+                    startActivity(intent)
                 })
             }
 

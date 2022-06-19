@@ -30,6 +30,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textSize="18sp"
+
                 android:layout_marginTop="8dp"
                 android:text="Billing Amount: "
                 android:textStyle="bold"
@@ -40,29 +42,18 @@
                 android:id="@+id/payServiceAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:layout_marginStart="16dp"
                 android:text="254"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/blue"
-                android:clickable="true"
-                android:src="@drawable/ic_baseline_exit_to_app_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Service Type:"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView5"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -72,6 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textSize="18sp"
+
                 android:text="Lubrication"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
                 app:layout_constraintTop_toTopOf="@+id/textView3" />
@@ -81,6 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textSize="18sp"
+
                 android:text="Date: "
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -91,6 +86,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textSize="18sp"
+
                 android:text="22/12/21"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
                 app:layout_constraintTop_toTopOf="@+id/textView9" />
@@ -102,6 +99,8 @@
                 android:layout_marginTop="8dp"
                 android:text="Time: "
                 android:textStyle="bold"
+                android:textSize="18sp"
+
                 app:layout_constraintStart_toStartOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -110,6 +109,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textSize="18sp"
+
                 android:text="06:00"
                 app:layout_constraintStart_toEndOf="@+id/textView13"
                 app:layout_constraintTop_toTopOf="@+id/textView13" />
@@ -155,6 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:textSize="18sp"
                 android:text="Optional:"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
